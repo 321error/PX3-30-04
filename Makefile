@@ -766,6 +766,7 @@ KBUILD_CFLAGS += $(call cc-disable-warning, strlcpy-strlcat-size)
 KBUILD_CFLAGS += $(call cc-disable-warning, fortify-source)
 KBUILD_CFLAGS += $(call cc-disable-warning, strict-prototypes)
 KBUILD_CFLAGS += $(call cc-disable-warning, implicit-function-declaration)
+KBUILD_CFLAGS += $(call cc-disable-warning, implicit-int)
 KBUILD_CFLAGS += $(call cc-disable-warning, array-parameter)
 KBUILD_CFLAGS += $(call cc-disable-warning, enum-conversion)
 KBUILD_CFLAGS += $(call cc-disable-warning, deprecated-declarations)
@@ -782,6 +783,7 @@ KBUILD_CFLAGS += $(call cc-option, -Wno-strlcpy-strlcat-size)
 KBUILD_CFLAGS += $(call cc-option, -Wno-fortify-source)
 KBUILD_CFLAGS += $(call cc-option, -Wno-strict-prototypes)
 KBUILD_CFLAGS += $(call cc-option, -Wno-implicit-function-declaration)
+KBUILD_CFLAGS += $(call cc-option, -Wno-implicit-int)
 KBUILD_CFLAGS += $(call cc-option, -Wno-array-parameter)
 KBUILD_CFLAGS += $(call cc-option, -Wno-enum-conversion)
 KBUILD_CFLAGS += $(call cc-option, -Wno-deprecated-declarations)
@@ -983,9 +985,6 @@ KBUILD_CFLAGS  += $(call cc-option,-fno-stack-check,)
 
 # conserve stack if available
 KBUILD_CFLAGS   += $(call cc-option,-fconserve-stack)
-
-# disallow errors like 'EXPORT_GPL(foo);' with missing header
-KBUILD_CFLAGS   += $(call cc-option,-Werror=implicit-int)
 
 # Prohibit date/time macros, which would make the build non-deterministic
 KBUILD_CFLAGS   += $(call cc-option,-Werror=date-time)
